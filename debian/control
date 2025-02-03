@@ -1,0 +1,8 @@
+Package: txikilinux
+Version: 1.0
+Architecture: all
+Maintainer: Néstor A.C. <nestor@elkartenet.eus>
+Description: This package converts any Linux Mint installation into
+             a Txikilinux flavour.
+Section: education
+Priority: optional

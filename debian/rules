@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+# This is a simple debian/rules file for a noarch package
+# (Note: In debian/control, set “Architecture: all”)
+
+%:
+	dh $@
+
+# Since there is nothing to compile, override the build step.
+override_dh_auto_build:
+	@echo "No build step needed for a data-only package."
+
+# Override the install step so that files go where you want them.
+override_dh_install:
+	# Create the target directories inside $(DESTDIR)
+	install -d $(DESTDIR)/usr/share/myapp/images
+	install -d $(DESTDIR)/etc/myapp
+	
+	# Install the image files (assumes they’re in an 'images/' subdir of the source)
+	install -m 644 images/* $(DESTDIR)/usr/share/myapp/images/
+	
+	# Install the configuration files (assumes they’re in a 'config/' subdir)
+	install -m 644 config/* $(DESTDIR)/etc/myapp/
+	
+	# Let debhelper do its default work too (if needed)
+	dh_install
