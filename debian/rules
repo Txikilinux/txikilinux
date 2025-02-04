@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+
+export DESTDIR ?= $(CURDIR)/debian/txikilinux/
+
 %:
 	dh $@
 
@@ -8,7 +11,6 @@ override_dh_auto_build:
 
 # Override the install step to copy the theme files into $(DESTDIR)
 override_dh_auto_install:
-	# Create the target directory in the staging area
-	install -d $(DEST)/usr/share/themes/
-	# Copy the Elkartenet theme directory into the staging area
-	cp -r $(CURDIR)/Elkartenet $(DEST)/usr/share/themes/
+	@echo "DEBUG: DESTDIR is '$(DESTDIR)'"
+	mkdir -p $(DESTDIR)/usr/share/themes/Elkartenet
+	cp -a $(CURDIR)/Elkartenet/* $(DESTDIR)/usr/share/themes/Elkartenet/
