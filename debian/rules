@@ -11,6 +11,5 @@ override_dh_auto_build:
 
 # Override the install step to copy the theme files into $(DESTDIR)
 override_dh_auto_install:
-	@echo "DEBUG: DESTDIR is '$(DESTDIR)'"
-	mkdir -p $(DESTDIR)/usr/share/themes/Elkartenet
-	cp -a $(CURDIR)/Elkartenet/* $(DESTDIR)/usr/share/themes/Elkartenet/
+	mkdir -p $(DESTDIR)/usr/share/themes/Txikilinux
+	cp -a $(CURDIR)/Txikilinux/* $(DESTDIR)/usr/share/themes/Txikilinux/
