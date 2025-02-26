@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=txikilinux
+Description=txikilinux
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/txikilinux
+ScriptFile=/usr/share/plymouth/themes/txikilinux/txikilinux.script
