@@ -1,0 +1,24 @@
+#!/bin/sh
+#DEBHELPER#
+set -e
+
+THEME='txikilinux'
+INSTALLDIR=/usr/share/plymouth/themes
+
+case "$1" in
+    configure)
+        printf "Installing '${THEME}' theme..."
+        update-alternatives --quiet --install ${INSTALLDIR}/default.plymouth default.plymouth ${INSTALLDIR}/${THEME}/${THEME}.plymouth 100
+        printf "... DONE\n"
+
+        printf "Selecting '${THEME}' theme..."
+        update-alternatives --quiet --set default.plymouth ${INSTALLDIR}/${THEME}/${THEME}.plymouth
+        printf ".... DONE\n"
+
+        printf "Updating initramfs...\n"
+        update-initramfs -u
+        printf "DONE\n"
+    ;;
+esac
+
+exit 0

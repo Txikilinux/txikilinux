@@ -11,5 +11,11 @@ override_dh_auto_build:
 
 # Override the install step to copy the theme files into $(DESTDIR)
 override_dh_auto_install:
-	mkdir -p $(DESTDIR)/usr/share/themes/Txikilinux
-	cp -a $(CURDIR)/Txikilinux/* $(DESTDIR)/usr/share/themes/Txikilinux/
+	@echo "Installing theme files..."
+	@THEME='txikilinux'; \
+	INSTALLDIR=$(DESTDIR)/usr/share/plymouth/themes/$$THEME; \
+	echo "Copying theme files to $$INSTALLDIR..."; \
+	mkdir -p "$$INSTALLDIR"; \
+	cp -a $(CURDIR)/Txikilinux/* "$$INSTALLDIR"/; \
+	chmod -R 755 "$$INSTALLDIR"; \
+	echo "Installation complete."

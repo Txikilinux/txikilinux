@@ -3,12 +3,12 @@ Section: education
 Priority: optional
 Architecture: all
 Maintainer: Néstor A.C. <nestor@elkartenet.eus>
-Build-Depends: debhelper
+Build-Depends: debhelper (>= 12)
 Standards-Version: 3.8.1
 Homepage: https://www.elkartenet.eus/
 
 Package: txikilinux
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}
 Description: This package converts any Linux Mint installation into
-             a Txikilinux flavour.
+ a Txikilinux flavour.
